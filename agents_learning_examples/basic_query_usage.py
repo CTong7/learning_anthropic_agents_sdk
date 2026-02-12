@@ -13,7 +13,7 @@ async def main():
     
     # ! for vs. async for --> for lets you iterate over a normal iterator, async for lets you iterate over an async iterable, awaiting each item as it becomes avaialble without blocking event loop
     # async for only works inside of an async def function
-    async for message in query(prompt = "You are a helpful assistant for answering my questions based on claude_agent_sdk documentation in python"):
+    async for message in query(prompt = "You are a helpful assistant. How do i echo my anthropic api key in terminal on mac?"):
 
         if isinstance(message,AssistantMessage):
             

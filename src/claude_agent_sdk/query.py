@@ -8,7 +8,8 @@ from ._internal.client import InternalClient
 from ._internal.transport import Transport
 from .types import ClaudeAgentOptions, Message
 
-
+#learn: this * means that every parameter after this param MUST be passed in as keyword
+# if you don't specifcy prompt = or options = you will get TypeError query takes 0 positional arugments
 async def query(
     *,
     prompt: str | AsyncIterable[dict[str, Any]],

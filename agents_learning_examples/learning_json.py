@@ -31,8 +31,12 @@ print(json_string)
 json_path = Path(__file__).resolve().parent / "test.json"
 
 with open(json_path) as file:
-    json_string = json.load(file) #! this actually converts it into python dictionary, not a json
+    data = json.load(file) #! this actually converts it into python dictionary, not a json
+    # todo: if you don't want to convert data twice, you can use file.read() instead and it will load as raw text which is the same as json which is just raw text
 
 print("This is method 3:", end = "\n")
 
-print(type(json_string)) # this is a dictionary
+print(type(data)) # this is a dictionary
+
+# we need to convert python dictionary into a json now before sending
+json_data = json.dumps(data)

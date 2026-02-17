@@ -126,11 +126,14 @@ class ClaudeSDKClient:
         # Use provided custom transport or create subprocess transport
         if self._custom_transport:
             self._transport = self._custom_transport
+
+        # learn: this is where agent sdk connects to claude code cli
         else:
             self._transport = SubprocessCLITransport(
                 prompt=actual_prompt,
                 options=options,
             )
+
         await self._transport.connect()
 
         # Extract SDK MCP servers from options

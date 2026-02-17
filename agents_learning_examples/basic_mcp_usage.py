@@ -13,16 +13,25 @@ tools are defined as async in claude
 
 @tool(name="greet", description = "Greet a user",input_schema={"name":str})
 async def greet_user_tool(args):
-    # returns a python dictionary
-    return {
-        "content": [
-            {
-                "type":"text",
-                "text": f"Hello, {args['name']}!"
-            }
+    try:
+        # returns a python dictionary
+        return {
+            "content": [
+                {
+                    "type":"text",
+                    "text": f"Hello, {args['name']}!"
+                }
 
-        ]
-    }
+            ]
+        }
+    
+    # learn: add error handling on tools for better debugging 
+    except Exception as e:
+        return {
+            "content": [{"type": "text", 
+            "text": f"Greet User Tool Failed: {e}"}],
+            "is_error":True
+        }
 
 
 # step 2: create a sdk mcp server to host all tools

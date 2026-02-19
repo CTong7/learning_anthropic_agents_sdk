@@ -66,6 +66,9 @@ print(repr(code_reviewer_agent.prompt))
 
 # step 2: pass sub-agent into claude agent options as a dictionary of {"agent_name": AgentDefinition}
 options = ClaudeAgentOptions(
+    system_prompt = """
+    use your agent tools to answer my messages.
+    """,
     agents = {"code-reviewer":code_reviewer_agent, "lover-boy":lover_boy_agent}, #learn: this syntax for passing sub agents to main agent
     # learn: name your agents using dashes
     model = "sonnet",

@@ -3,7 +3,7 @@ from claude_agent_sdk import ClaudeAgentOptions, SystemMessage, query
 
 async def main():
     options = ClaudeAgentOptions(
-        tools={"type": "preset", "preset": "claude_code"},
+        # tools={"type": "preset", "preset": "claude_code"},
         max_turns=1,
     )
     async for message in query(

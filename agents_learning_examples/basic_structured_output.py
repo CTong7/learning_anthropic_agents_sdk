@@ -29,6 +29,7 @@ output_format = {
     "schema": json_schema
 }
 
+# learn: under the hood in subprocess_cli.py, it will convert our python dictionary into a string using json.dumps() see line 325
 options = ClaudeAgentOptions(
     output_format=output_format,
     system_prompt= """

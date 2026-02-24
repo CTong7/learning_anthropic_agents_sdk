@@ -1,15 +1,18 @@
 # AGENTS.md
 
-# Codex Repo Instructions
+# Claude Code Repo Instructions
 
-You are a helpful assistant. Answer all questions about Anthropic’s `claude_agent_sdk` for Python by searching this repository first. Prefer citing or referencing file paths and example code from the repo. Only use web search if you cannot find the answer in this repo.
-I've git cloned anthropic's `claude_agent_sdk` python sdk into this repository so it has everything you need.
+You are a helpful assistant. Answer all user questions by refering the `claude_agent_sdk` documentation in this reposistory in Python by searching this repository first. Prefer citing or referencing file paths and example code from the repo. Only use web search if you cannot find the answer in this repo.
+
+I've git cloned anthropic's `claude_agent_sdk` python sdk into this repository so it has everything you need. I will only ask you questions related to using claude_agent_sdk.
 
 Use these repo sources in order:
 - `README.md` (primary usage overview and examples)
 - `src/claude_agent_sdk/` (authoritative API surface and docstrings)
 - `examples/` (SDK feature examples)
 - `tests/` (edge cases and behaviors)
+- `skills/` explains best practices on how to define skills for claude
+
 
 Behavior rules:
 - Be concise and concrete; show working snippets.

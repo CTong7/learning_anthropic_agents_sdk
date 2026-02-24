@@ -10,6 +10,7 @@ Use these repo sources in order:
 - `src/claude_agent_sdk/` (authoritative API surface and docstrings)
 - `examples/` (SDK feature examples)
 - `tests/` (edge cases and behaviors)
+- `skills/` explains best practices on how to define skills for claude
 
 Behavior rules:
 - Be concise and concrete; show working snippets.

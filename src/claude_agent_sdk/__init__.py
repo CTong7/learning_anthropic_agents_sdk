@@ -94,6 +94,8 @@ def tool(
             - A TypedDict class for more complex schemas
             - A JSON Schema dictionary for full validation
 
+    # learn: there are 3 types of input schemas you can pass in, you can even define tools with empty schemas
+    
     Returns:
         A decorator function that wraps the tool implementation and returns
         an SdkMcpTool instance ready for use with create_sdk_mcp_server().
@@ -284,7 +286,7 @@ def create_sdk_mcp_server(
             if "content" in result:
                 for item in result["content"]:
                     if item.get("type") == "text":
-                        content.append(TextContent(type="text", text=item["text"]))
+                        content.append(TextContent(type="text", text=item["text"])) #learn: this is how the sdk parses the output of a tool
                     if item.get("type") == "image":
                         content.append(
                             ImageContent(

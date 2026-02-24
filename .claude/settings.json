@@ -5,7 +5,8 @@
       "Bash(python -m ruff format src/ tests/)",
       "Bash(python -m mypy src/)",
       "Bash(python -m pytest tests/)",
-      "Bash(python -m pytest tests/*)"
+      "Bash(python -m pytest tests/*)",
+      "Bash(pdftotext *)"
     ],
     "deny": []
   },

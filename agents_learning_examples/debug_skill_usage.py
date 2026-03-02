@@ -5,7 +5,7 @@ import json
 options = ClaudeAgentOptions(
     allowed_tools = ["Skill","Bash"],
     model = "sonnet",
-    cwd = "/Users/christong/Documents/learn_anthropic_agents_sdk",
+    cwd = ".",
     setting_sources=["project"],
     system_prompt = """
     you are a helpful assistant.
@@ -19,7 +19,8 @@ async def main():
     turn_count = 0
 
     async for message in query(
-        prompt = "What is my total monthly spending in this PDF file agents_learning_examples/2026-01-15_Statement.pdf? Please tell me the number.",
+        # prompt = "What is my total monthly spending in this PDF file agents_learning_examples/2026-01-15_Statement.pdf? Please tell me the number.",
+        prompt = "Show me the first 50 lines of this pdf file:  agents_learning_examples/2026-01-15_Statement.pdf? Based on the output is this a debit or credit card statement? What is the name of this bank account type?",
         options = options
     ):
         print(f"\n{'='*60}")
@@ -31,11 +32,13 @@ async def main():
             if message.subtype == "init":
                 skills = message.data.get("skills", [])
                 print(f"🔧 Available skills: {skills}")
+
             print(f"Data: {json.dumps(message.data, indent=2)}")
 
         elif isinstance(message, AssistantMessage):
             turn_count += 1
             print(f"🤖 Assistant Turn #{turn_count}")
+            print(f"This is the Parent Tool Use ID: {message.parent_tool_use_id}")
             print(f"Number of content blocks: {len(message.content)}")
 
             for i, block in enumerate(message.content):
@@ -51,6 +54,7 @@ async def main():
 
         elif isinstance(message, UserMessage):
             print(f"👤 User/Tool Response")
+            print(f"This is the Parent Tool Use ID: {message.parent_tool_use_id}")
             print(f"Content type: {type(message.content)}")
 
             if isinstance(message.content, list):

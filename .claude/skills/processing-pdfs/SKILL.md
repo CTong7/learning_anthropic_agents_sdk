@@ -22,4 +22,7 @@ pdftotext -layout input.pdf -
 
 # Extract specific pages
 pdftotext -f 1 -l 5 input.pdf output.txt  # Pages 1-5
+
+# Extract the first 50 lines of the pdf
+pdftotext input.pdf - | head -30
 ```

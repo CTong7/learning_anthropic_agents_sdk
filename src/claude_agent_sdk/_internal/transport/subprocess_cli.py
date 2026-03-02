@@ -403,7 +403,7 @@ class SubprocessCLITransport(Transport):
             self._process = await anyio.open_process(
                 cmd,
                 stdin=PIPE,
-                stdout=PIPE,
+                stdout=PIPE, #learn: this controls whether prints in the subprocess show in the parent
                 stderr=stderr_dest,
                 cwd=self._cwd,
                 env=process_env,
